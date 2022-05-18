@@ -1,11 +1,11 @@
 import { reducer, RootState } from "./reducers/index";
 import { Context, createWrapper } from "next-redux-wrapper";
-import { createStore, Store } from "redux";
+import { applyMiddleware, createStore, Store } from "redux";
+import { composeWithDevTools } from "@redux-devtools/extension";
 
-// create a makeStore function
-const makeStore = (context: Context) => createStore(reducer);
+const makeStore = (context: Context) =>
+  createStore(reducer, composeWithDevTools(applyMiddleware()));
 
-// export an assembled wrapper
 export const wrapper = createWrapper<Store<RootState>>(makeStore, {
   debug: true,
 });
