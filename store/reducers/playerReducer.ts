@@ -3,7 +3,7 @@ import * as actions from "./../actions-creators/player";
 const initialState = {
   pause: true,
   currentTime: 0,
-  volume: 0,
+  volume: 50,
   duration: 0,
   active: null,
 };
